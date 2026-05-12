@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: pool-tournament-backend
+    runtime: docker
+    dockerContext: .
+    dockerFilePath: deployment/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: pool-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: pool-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: pool-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+
+databases:
+  - name: pool-db
+    plan: free
+    region: oregon

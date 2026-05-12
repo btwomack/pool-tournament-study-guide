@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, select, textarea {
+  @apply px-3 py-2 border border-gray-600 rounded;
+}
+
+input:focus, select:focus, textarea:focus {
+  @apply outline-none ring-2 ring-indigo-500;
+}
+
+:root {
+  --pool-felt: #1a472a;
+  --pool-table: #2a5a3a;
+}
+
+.bg-pool-felt {
+  background-color: var(--pool-felt);
+}
+
+.bg-pool-table {
+  background-color: var(--pool-table);
+}
